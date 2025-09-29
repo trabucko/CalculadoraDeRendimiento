@@ -43,44 +43,61 @@
             this.btnCalcular = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.group_modelo = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttom_Angulable = new System.Windows.Forms.RadioButton();
-            this.buttom_Recta = new System.Windows.Forms.RadioButton();
             this.box_modelos = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.buttom_Recta = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.group_material_factor = new System.Windows.Forms.GroupBox();
+            this.grupo_densidad = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtboxCompacto = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtboxSuelto = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtboxBanco = new System.Windows.Forms.TextBox();
+            this.radio_abundamiento = new System.Windows.Forms.RadioButton();
+            this.radio_enjuntamiento = new System.Windows.Forms.RadioButton();
+            this.buttom__densidad = new System.Windows.Forms.RadioButton();
+            this.group_factor = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtbox_factor_Especifo = new System.Windows.Forms.TextBox();
             this.group_material = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.box_material = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttom_estado_Abundamiento = new System.Windows.Forms.RadioButton();
             this.buttom_estado_Enjuntamiento = new System.Windows.Forms.RadioButton();
-            this.group_factor = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtbox_factor_Especifo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.group_eficacia = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.lbltiempoCiclo = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.grupo_pendiente = new System.Windows.Forms.GroupBox();
+            this.buttom_pendiente = new System.Windows.Forms.CheckBox();
+            this.grupo_angulo = new System.Windows.Forms.GroupBox();
+            this.txtboxPendiente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.check_negativa = new System.Windows.Forms.CheckBox();
+            this.check_positiva = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.group_modelo.SuspendLayout();
             this.group_material_factor.SuspendLayout();
-            this.group_material.SuspendLayout();
+            this.grupo_densidad.SuspendLayout();
             this.group_factor.SuspendLayout();
+            this.group_material.SuspendLayout();
             this.group_eficacia.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.grupo_pendiente.SuspendLayout();
+            this.grupo_angulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::CalculadoraDeRendimiento.Properties.Resources.Buldozer;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(12, 40);
@@ -117,7 +134,7 @@
             // buttom_material
             // 
             this.buttom_material.AutoSize = true;
-            this.buttom_material.Location = new System.Drawing.Point(37, 19);
+            this.buttom_material.Location = new System.Drawing.Point(32, 19);
             this.buttom_material.Name = "buttom_material";
             this.buttom_material.Size = new System.Drawing.Size(451, 17);
             this.buttom_material.TabIndex = 17;
@@ -130,7 +147,7 @@
             // buttom_factor
             // 
             this.buttom_factor.AutoSize = true;
-            this.buttom_factor.Location = new System.Drawing.Point(34, 169);
+            this.buttom_factor.Location = new System.Drawing.Point(32, 160);
             this.buttom_factor.Name = "buttom_factor";
             this.buttom_factor.Size = new System.Drawing.Size(275, 17);
             this.buttom_factor.TabIndex = 18;
@@ -189,9 +206,9 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(281, 638);
+            this.btnCalcular.Location = new System.Drawing.Point(281, 684);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(504, 38);
+            this.btnCalcular.Size = new System.Drawing.Size(518, 38);
             this.btnCalcular.TabIndex = 25;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -200,10 +217,12 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(858, 552);
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(839, 673);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 46);
+            this.label11.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.label11.Size = new System.Drawing.Size(152, 49);
             this.label11.TabIndex = 26;
             this.label11.Text = "label11";
             // 
@@ -217,10 +236,19 @@
             this.group_modelo.Controls.Add(this.label12);
             this.group_modelo.Location = new System.Drawing.Point(281, 40);
             this.group_modelo.Name = "group_modelo";
-            this.group_modelo.Size = new System.Drawing.Size(504, 124);
+            this.group_modelo.Size = new System.Drawing.Size(518, 124);
             this.group_modelo.TabIndex = 27;
             this.group_modelo.TabStop = false;
             this.group_modelo.Text = "Modelo Buldozer";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(300, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 13);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "___________________________";
             // 
             // buttom_Angulable
             // 
@@ -233,6 +261,15 @@
             this.buttom_Angulable.Text = "Angulable";
             this.buttom_Angulable.UseVisualStyleBackColor = true;
             // 
+            // box_modelos
+            // 
+            this.box_modelos.FormattingEnabled = true;
+            this.box_modelos.Location = new System.Drawing.Point(82, 37);
+            this.box_modelos.Name = "box_modelos";
+            this.box_modelos.Size = new System.Drawing.Size(199, 21);
+            this.box_modelos.TabIndex = 30;
+            this.box_modelos.SelectedIndexChanged += new System.EventHandler(this.box_modelos_SelectedIndexChanged);
+            // 
             // buttom_Recta
             // 
             this.buttom_Recta.AutoSize = true;
@@ -244,14 +281,14 @@
             this.buttom_Recta.Text = "Recta";
             this.buttom_Recta.UseVisualStyleBackColor = true;
             // 
-            // box_modelos
+            // label13
             // 
-            this.box_modelos.FormattingEnabled = true;
-            this.box_modelos.Location = new System.Drawing.Point(82, 37);
-            this.box_modelos.Name = "box_modelos";
-            this.box_modelos.Size = new System.Drawing.Size(199, 21);
-            this.box_modelos.TabIndex = 30;
-            this.box_modelos.SelectedIndexChanged += new System.EventHandler(this.box_modelos_SelectedIndexChanged);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(31, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Modelo:";
             // 
             // label12
             // 
@@ -262,32 +299,156 @@
             this.label12.TabIndex = 29;
             this.label12.Text = "Tipo de Hoja:";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(31, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Modelo:";
-            // 
             // group_material_factor
             // 
-            this.group_material_factor.Controls.Add(this.textBox2);
-            this.group_material_factor.Controls.Add(this.textBox1);
-            this.group_material_factor.Controls.Add(this.label17);
-            this.group_material_factor.Controls.Add(this.label16);
-            this.group_material_factor.Controls.Add(this.radioButton1);
+            this.group_material_factor.Controls.Add(this.grupo_densidad);
+            this.group_material_factor.Controls.Add(this.buttom__densidad);
             this.group_material_factor.Controls.Add(this.group_factor);
             this.group_material_factor.Controls.Add(this.group_material);
             this.group_material_factor.Controls.Add(this.buttom_material);
             this.group_material_factor.Controls.Add(this.buttom_factor);
             this.group_material_factor.Location = new System.Drawing.Point(281, 170);
             this.group_material_factor.Name = "group_material_factor";
-            this.group_material_factor.Size = new System.Drawing.Size(504, 372);
+            this.group_material_factor.Size = new System.Drawing.Size(518, 430);
             this.group_material_factor.TabIndex = 28;
             this.group_material_factor.TabStop = false;
             this.group_material_factor.Text = "Material | Factor Especifico";
+            // 
+            // grupo_densidad
+            // 
+            this.grupo_densidad.Controls.Add(this.label20);
+            this.grupo_densidad.Controls.Add(this.txtboxCompacto);
+            this.grupo_densidad.Controls.Add(this.label19);
+            this.grupo_densidad.Controls.Add(this.txtboxSuelto);
+            this.grupo_densidad.Controls.Add(this.label18);
+            this.grupo_densidad.Controls.Add(this.label17);
+            this.grupo_densidad.Controls.Add(this.txtboxBanco);
+            this.grupo_densidad.Controls.Add(this.radio_abundamiento);
+            this.grupo_densidad.Controls.Add(this.radio_enjuntamiento);
+            this.grupo_densidad.Location = new System.Drawing.Point(34, 300);
+            this.grupo_densidad.Name = "grupo_densidad";
+            this.grupo_densidad.Size = new System.Drawing.Size(466, 110);
+            this.grupo_densidad.TabIndex = 22;
+            this.grupo_densidad.TabStop = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(311, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(55, 13);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "Compacto";
+            // 
+            // txtboxCompacto
+            // 
+            this.txtboxCompacto.Location = new System.Drawing.Point(367, 19);
+            this.txtboxCompacto.Name = "txtboxCompacto";
+            this.txtboxCompacto.Size = new System.Drawing.Size(93, 20);
+            this.txtboxCompacto.TabIndex = 24;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(162, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(37, 13);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Suelto";
+            // 
+            // txtboxSuelto
+            // 
+            this.txtboxSuelto.Location = new System.Drawing.Point(209, 19);
+            this.txtboxSuelto.Name = "txtboxSuelto";
+            this.txtboxSuelto.Size = new System.Drawing.Size(93, 20);
+            this.txtboxSuelto.TabIndex = 22;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(110, 63);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(43, 13);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "Estado:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 19);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(37, 13);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "banco";
+            // 
+            // txtboxBanco
+            // 
+            this.txtboxBanco.Location = new System.Drawing.Point(60, 19);
+            this.txtboxBanco.Name = "txtboxBanco";
+            this.txtboxBanco.Size = new System.Drawing.Size(93, 20);
+            this.txtboxBanco.TabIndex = 18;
+            // 
+            // radio_abundamiento
+            // 
+            this.radio_abundamiento.AutoSize = true;
+            this.radio_abundamiento.Location = new System.Drawing.Point(159, 61);
+            this.radio_abundamiento.Name = "radio_abundamiento";
+            this.radio_abundamiento.Size = new System.Drawing.Size(93, 17);
+            this.radio_abundamiento.TabIndex = 19;
+            this.radio_abundamiento.TabStop = true;
+            this.radio_abundamiento.Text = "Abundamiento";
+            this.radio_abundamiento.UseVisualStyleBackColor = true;
+            this.radio_abundamiento.CheckedChanged += new System.EventHandler(this.radio_abundamiento_CheckedChanged);
+            // 
+            // radio_enjuntamiento
+            // 
+            this.radio_enjuntamiento.AutoSize = true;
+            this.radio_enjuntamiento.Location = new System.Drawing.Point(258, 61);
+            this.radio_enjuntamiento.Name = "radio_enjuntamiento";
+            this.radio_enjuntamiento.Size = new System.Drawing.Size(92, 17);
+            this.radio_enjuntamiento.TabIndex = 20;
+            this.radio_enjuntamiento.TabStop = true;
+            this.radio_enjuntamiento.Text = "Enjuntamiento";
+            this.radio_enjuntamiento.UseVisualStyleBackColor = true;
+            this.radio_enjuntamiento.CheckedChanged += new System.EventHandler(this.radio_abundamiento_CheckedChanged);
+            // 
+            // buttom__densidad
+            // 
+            this.buttom__densidad.AutoSize = true;
+            this.buttom__densidad.Location = new System.Drawing.Point(32, 265);
+            this.buttom__densidad.Name = "buttom__densidad";
+            this.buttom__densidad.Size = new System.Drawing.Size(266, 17);
+            this.buttom__densidad.TabIndex = 21;
+            this.buttom__densidad.TabStop = true;
+            this.buttom__densidad.Text = "Selecciona esta Opcion para calcular por densidad";
+            this.buttom__densidad.UseVisualStyleBackColor = true;
+            this.buttom__densidad.CheckedChanged += new System.EventHandler(this.buttom_material_CheckedChanged);
+            // 
+            // group_factor
+            // 
+            this.group_factor.Controls.Add(this.label7);
+            this.group_factor.Controls.Add(this.txtbox_factor_Especifo);
+            this.group_factor.Location = new System.Drawing.Point(32, 183);
+            this.group_factor.Name = "group_factor";
+            this.group_factor.Size = new System.Drawing.Size(437, 67);
+            this.group_factor.TabIndex = 20;
+            this.group_factor.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Factor Especifico:";
+            // 
+            // txtbox_factor_Especifo
+            // 
+            this.txtbox_factor_Especifo.Location = new System.Drawing.Point(102, 27);
+            this.txtbox_factor_Especifo.Name = "txtbox_factor_Especifo";
+            this.txtbox_factor_Especifo.Size = new System.Drawing.Size(154, 20);
+            this.txtbox_factor_Especifo.TabIndex = 18;
             // 
             // group_material
             // 
@@ -351,48 +512,13 @@
             this.buttom_estado_Enjuntamiento.Text = "Enjuntamiento";
             this.buttom_estado_Enjuntamiento.UseVisualStyleBackColor = true;
             // 
-            // group_factor
-            // 
-            this.group_factor.Controls.Add(this.label7);
-            this.group_factor.Controls.Add(this.txtbox_factor_Especifo);
-            this.group_factor.Location = new System.Drawing.Point(34, 192);
-            this.group_factor.Name = "group_factor";
-            this.group_factor.Size = new System.Drawing.Size(437, 67);
-            this.group_factor.TabIndex = 20;
-            this.group_factor.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Factor Especifico:";
-            // 
-            // txtbox_factor_Especifo
-            // 
-            this.txtbox_factor_Especifo.Location = new System.Drawing.Point(102, 27);
-            this.txtbox_factor_Especifo.Name = "txtbox_factor_Especifo";
-            this.txtbox_factor_Especifo.Size = new System.Drawing.Size(154, 20);
-            this.txtbox_factor_Especifo.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "___________________________";
-            // 
             // group_eficacia
             // 
             this.group_eficacia.Controls.Add(this.txtbox_Eficacia);
             this.group_eficacia.Controls.Add(this.label6);
-            this.group_eficacia.Location = new System.Drawing.Point(281, 548);
+            this.group_eficacia.Location = new System.Drawing.Point(281, 606);
             this.group_eficacia.Name = "group_eficacia";
-            this.group_eficacia.Size = new System.Drawing.Size(504, 72);
+            this.group_eficacia.Size = new System.Drawing.Size(518, 72);
             this.group_eficacia.TabIndex = 29;
             this.group_eficacia.TabStop = false;
             this.group_eficacia.Text = "Inserte Eficacia";
@@ -411,37 +537,10 @@
             this.groupBox6.Controls.Add(this.txtDistanciaDelProyecto);
             this.groupBox6.Location = new System.Drawing.Point(12, 291);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(248, 358);
+            this.groupBox6.Size = new System.Drawing.Size(248, 431);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Datos Buldozer";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(188, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "km/h";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(188, 127);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "km/h";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(188, 183);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 13);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "m";
             // 
             // lbltiempoCiclo
             // 
@@ -452,55 +551,112 @@
             this.lbltiempoCiclo.TabIndex = 29;
             this.lbltiempoCiclo.Text = "tiempo de ciclo:";
             // 
-            // radioButton1
+            // label15
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(34, 288);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(266, 17);
-            this.radioButton1.TabIndex = 21;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Selecciona esta Opcion para calcular por densidad";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(188, 183);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "m";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(188, 127);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "km/h";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(188, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "km/h";
+            // 
+            // grupo_pendiente
+            // 
+            this.grupo_pendiente.Controls.Add(this.buttom_pendiente);
+            this.grupo_pendiente.Controls.Add(this.grupo_angulo);
+            this.grupo_pendiente.Location = new System.Drawing.Point(803, 40);
+            this.grupo_pendiente.Name = "grupo_pendiente";
+            this.grupo_pendiente.Size = new System.Drawing.Size(430, 124);
+            this.grupo_pendiente.TabIndex = 31;
+            this.grupo_pendiente.TabStop = false;
+            this.grupo_pendiente.Text = "Pendiente";
+            // 
+            // buttom_pendiente
+            // 
+            this.buttom_pendiente.AutoSize = true;
+            this.buttom_pendiente.Location = new System.Drawing.Point(17, 19);
+            this.buttom_pendiente.Name = "buttom_pendiente";
+            this.buttom_pendiente.Size = new System.Drawing.Size(305, 17);
+            this.buttom_pendiente.TabIndex = 4;
+            this.buttom_pendiente.Text = "Marca esta casilla si incluiras una pendiente para el calculo";
+            this.buttom_pendiente.UseVisualStyleBackColor = true;
+            this.buttom_pendiente.CheckedChanged += new System.EventHandler(this.buttom_pendiente_CheckedChanged);
+            // 
+            // grupo_angulo
+            // 
+            this.grupo_angulo.Controls.Add(this.txtboxPendiente);
+            this.grupo_angulo.Controls.Add(this.label16);
+            this.grupo_angulo.Controls.Add(this.check_negativa);
+            this.grupo_angulo.Controls.Add(this.check_positiva);
+            this.grupo_angulo.Location = new System.Drawing.Point(17, 37);
+            this.grupo_angulo.Name = "grupo_angulo";
+            this.grupo_angulo.Size = new System.Drawing.Size(397, 69);
+            this.grupo_angulo.TabIndex = 0;
+            this.grupo_angulo.TabStop = false;
+            // 
+            // txtboxPendiente
+            // 
+            this.txtboxPendiente.Location = new System.Drawing.Point(122, 29);
+            this.txtboxPendiente.Name = "txtboxPendiente";
+            this.txtboxPendiente.Size = new System.Drawing.Size(129, 20);
+            this.txtboxPendiente.TabIndex = 3;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(34, 329);
+            this.label16.Location = new System.Drawing.Point(21, 33);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Banco:";
+            this.label16.Size = new System.Drawing.Size(94, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Angulo Pendiente:";
             // 
-            // label17
+            // check_negativa
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(218, 332);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(40, 13);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "Suelto:";
+            this.check_negativa.AutoSize = true;
+            this.check_negativa.Location = new System.Drawing.Point(326, 31);
+            this.check_negativa.Name = "check_negativa";
+            this.check_negativa.Size = new System.Drawing.Size(69, 17);
+            this.check_negativa.TabIndex = 1;
+            this.check_negativa.Text = "Negativa";
+            this.check_negativa.UseVisualStyleBackColor = true;
+            this.check_negativa.CheckedChanged += new System.EventHandler(this.check_negativa_CheckedChanged);
             // 
-            // textBox1
+            // check_positiva
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 326);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 24;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(264, 326);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 25;
+            this.check_positiva.AutoSize = true;
+            this.check_positiva.Location = new System.Drawing.Point(257, 31);
+            this.check_positiva.Name = "check_positiva";
+            this.check_positiva.Size = new System.Drawing.Size(63, 17);
+            this.check_positiva.TabIndex = 0;
+            this.check_positiva.Text = "Positiva";
+            this.check_positiva.UseVisualStyleBackColor = true;
+            this.check_positiva.CheckedChanged += new System.EventHandler(this.check_positiva_CheckedChanged);
             // 
             // FormBuldozer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(1155, 688);
+            this.ClientSize = new System.Drawing.Size(1245, 767);
+            this.Controls.Add(this.grupo_pendiente);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.group_eficacia);
             this.Controls.Add(this.group_material_factor);
@@ -517,14 +673,20 @@
             this.group_modelo.PerformLayout();
             this.group_material_factor.ResumeLayout(false);
             this.group_material_factor.PerformLayout();
-            this.group_material.ResumeLayout(false);
-            this.group_material.PerformLayout();
+            this.grupo_densidad.ResumeLayout(false);
+            this.grupo_densidad.PerformLayout();
             this.group_factor.ResumeLayout(false);
             this.group_factor.PerformLayout();
+            this.group_material.ResumeLayout(false);
+            this.group_material.PerformLayout();
             this.group_eficacia.ResumeLayout(false);
             this.group_eficacia.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.grupo_pendiente.ResumeLayout(false);
+            this.grupo_pendiente.PerformLayout();
+            this.grupo_angulo.ResumeLayout(false);
+            this.grupo_angulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,10 +731,23 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbltiempoCiclo;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox grupo_pendiente;
+        private System.Windows.Forms.GroupBox grupo_angulo;
+        private System.Windows.Forms.TextBox txtboxPendiente;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox check_negativa;
+        private System.Windows.Forms.CheckBox check_positiva;
+        private System.Windows.Forms.CheckBox buttom_pendiente;
+        private System.Windows.Forms.GroupBox grupo_densidad;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtboxBanco;
+        private System.Windows.Forms.RadioButton buttom__densidad;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.RadioButton radio_abundamiento;
+        private System.Windows.Forms.RadioButton radio_enjuntamiento;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtboxCompacto;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtboxSuelto;
     }
 }

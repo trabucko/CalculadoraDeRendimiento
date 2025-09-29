@@ -248,6 +248,9 @@
     <EmbeddedResource Include="FormBuldozer.resx">
       <DependentUpon>FormBuldozer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMotoTrailla.resx">
+      <DependentUpon>FormMotoTrailla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,6 +57,18 @@ namespace CalculadoraDeRendimiento
             buttom_material.Checked = true;
             group_material.Enabled = true;
             group_factor.Enabled = false;
+            grupo_angulo.Enabled = false;
+
+
+            // 1. Marca "Abundamiento" como la opción por defecto.
+            radio_abundamiento.Checked = true;
+
+            // 2. Deshabilita el TextBox "Compacto" inicialmente.
+            txtboxCompacto.Enabled = false;
+
+            // 3. (Opcional) Asegúrate de que el "Suelto" esté habilitado.
+            txtboxSuelto.Enabled = true;
+
         }
 
         private void box_modelos_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,12 +131,20 @@ namespace CalculadoraDeRendimiento
                 // Si es así, habilitamos el GroupBox de material y deshabilitamos el de factor.
                 group_material.Enabled = true;
                 group_factor.Enabled = false;
+                grupo_densidad.Enabled = false;
             }
-            else // Si no, significa que la opción "Factor" está seleccionada.
+            else if(buttom_factor.Checked) // Si no, significa que la opción "Factor" está seleccionada.
             {
                 // Hacemos lo contrario: deshabilitamos el de material y habilitamos el de factor.
                 group_material.Enabled = false;
                 group_factor.Enabled = true;
+                grupo_densidad.Enabled = false;
+            }
+            else
+            {
+                group_factor.Enabled=false;
+                group_material.Enabled = false;
+                grupo_densidad.Enabled = true;
             }
         }
 
@@ -169,6 +190,8 @@ namespace CalculadoraDeRendimiento
 
             // --- 3. CÁLCULO DE 'Fab' (FACTOR DE ABUNDAMIENTO / enjuntamiento) ---
             double FactorAbundamiento = 0;
+          
+
             if (buttom_factor.Checked)
             {
                 if (!double.TryParse(txtbox_factor_Especifo.Text, out FactorAbundamiento) || FactorAbundamiento <= 0)
@@ -186,6 +209,49 @@ namespace CalculadoraDeRendimiento
                 else if (buttom_estado_Enjuntamiento.Checked)
                     FactorAbundamiento = (materialSeleccionado.enjuntamiento_a + materialSeleccionado.enjuntamiento_b) / 2;
                 else { MessageBox.Show("Seleccione un estado para el material."); return; }
+            }
+            else if (buttom__densidad.Checked)
+            {
+                // Primero, leemos los valores de los TextBox de densidad
+                double banco, suelto, compacto;
+
+                if (!double.TryParse(txtboxBanco.Text, out banco) || banco <= 0)
+                {
+                    MessageBox.Show("El valor 'banco' debe ser un número positivo.");
+                    return;
+                }
+                // Leemos los otros dos, su validación se hará después
+                double.TryParse(txtboxSuelto.Text, out suelto);
+                double.TryParse(txtboxCompacto.Text, out compacto);
+
+                // Ahora, dentro de la opción de Densidad, revisamos si es Abundamiento o Enjuntamiento
+                if (radio_abundamiento.Checked)
+                {
+                    // Validamos para evitar división por cero
+                    if (suelto <= 0)
+                    {
+                        MessageBox.Show("El valor 'Suelto' debe ser un número positivo para este cálculo.");
+                        return;
+                    }
+                    // Calculamos el factor según la fórmula de Abundamiento
+                    FactorAbundamiento = banco / suelto;
+                }
+                else if (radio_enjuntamiento.Checked)
+                {
+                    // Validamos para evitar división por cero
+                    if (compacto <= 0)
+                    {
+                        MessageBox.Show("El valor 'Compacto' debe ser un número positivo para este cálculo.");
+                        return;
+                    }
+                    // Calculamos el factor según la fórmula de Enjuntamiento
+                    FactorAbundamiento = banco / compacto;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un estado (Abundamiento o Enjuntamiento).");
+                    return;
+                }
             }
 
 
@@ -218,23 +284,141 @@ namespace CalculadoraDeRendimiento
 
             // Fórmula de capacidad simplificada C = longtiud* alto * factorpromedio
             double Capacidad = hoja.longitud_m * hoja.alto_m * 1.3;
+            // Finalmente, ajustamos la capacidad con el factor de pendiente
+            double Capacidad_Real=0;
+            if (buttom_pendiente.Checked)
+            {
+                double valorPendiente;
+                if (!double.TryParse(txtboxPendiente.Text, out valorPendiente) || valorPendiente < 0)
+                {
+                    MessageBox.Show("El valor de la pendiente debe ser un número positivo.");
+                    return;
+                }
 
+                if (!check_positiva.Checked && !check_negativa.Checked)
+                {
+                    MessageBox.Show("Debe seleccionar si la pendiente es positiva o negativa.");
+                    return;
+                }
+
+                double PerdidaPendiente = 0;
+                
+                double factorPendiente = 0;
+                if (check_positiva.Checked)
+                {
+                    PerdidaPendiente = 3 * valorPendiente;
+                    factorPendiente = 100 - PerdidaPendiente; // Restamos para pendiente positiva (100% - x)
+
+
+
+                }
+                else if (check_negativa.Checked)
+                {
+                   PerdidaPendiente = 6 * valorPendiente ;
+                   factorPendiente = 100 + PerdidaPendiente; // Sumamos para pendiente negativa (100% + x)
+                }
+
+                // Aplicamos la regla de tres: x = (valor_ingresado * porcentaje_base) / 1
+                double perdida_desplazamiento = distancia * (5.0 / 30.0);
+
+
+
+                double factor_desplazamiento = 100 - perdida_desplazamiento;
+
+
+
+
+
+               
+                Capacidad_Real = Capacidad * (factorPendiente/100) * (factor_desplazamiento/100);
+
+
+
+                
+
+
+            }
 
             // --- 6. CÁLCULO FINAL DE 'R' (RENDIMIENTO) ---
             if (TiempoCiclo <= 0 || FactorAbundamiento <= 0)
             {
                 MessageBox.Show("El Tiempo de Ciclo o el Factor de Abundamiento no pueden ser cero.");
                 return;
-            }
-            double Rendimiento = (Capacidad * Eficacia * 60) / (TiempoCiclo * FactorAbundamiento);
 
-            // --- 7. MOSTRAR EL RESULTADO ---
-            label11.Text = $"Rendimiento: {Rendimiento.ToString("F2")} m³/hr";
-            label11.Visible = true;
+
+
+
+            }
+
+
+
+            if (buttom_pendiente.Checked==true)
+            {
+                double Rendimiento = (Capacidad_Real * Eficacia * 60) / (TiempoCiclo * FactorAbundamiento);
+                // --- 7. MOSTRAR EL RESULTADO ---
+                label11.Text = $"Rendimiento: {Rendimiento.ToString("F2")} m³/hr";
+                label11.Visible = true;
+            }
+            else
+            {
+                double Rendimiento = (Capacidad * Eficacia * 60) / (TiempoCiclo * FactorAbundamiento);
+                label11.Text = $"Rendimiento: {Rendimiento.ToString("F2")} m³/hr";
+                label11.Visible = true;
+
+            }
+
+
 
             lbltiempoCiclo.Text = $"Tiempo de Ciclo: {TiempoCiclo.ToString("F2")} min";
+
+            
+
+            
         }
 
+        private void check_positiva_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_positiva.Checked)
+            {
+                check_negativa.Checked = false;
+            }
+        }
 
+        private void check_negativa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_negativa.Checked)
+            {
+                check_positiva.Checked = false;
+            }
+        }
+
+        private void buttom_pendiente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (grupo_angulo.Enabled == false)
+            {
+                grupo_angulo.Enabled = true;
+            }
+            else
+            {
+                grupo_angulo.Enabled = false;
+            }
+        }
+
+        private void radio_abundamiento_CheckedChanged(object sender, EventArgs e)
+        {
+            // Revisa si la opción "Abundamiento" está marcada.
+            if (radio_abundamiento.Checked)
+            {
+                // Si es así, habilita "Suelto" y deshabilita "Compacto".
+                txtboxSuelto.Enabled = true;
+                txtboxCompacto.Enabled = false;
+            }
+            else // Si no, significa que "Enjuntamiento" está marcada.
+            {
+                // Habilita "Compacto" y deshabilita "Suelto".
+                txtboxSuelto.Enabled = false;
+                txtboxCompacto.Enabled = true;
+            }
+        }
     }
 }

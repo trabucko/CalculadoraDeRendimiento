@@ -324,7 +324,7 @@
             this.Controls.Add(this.group_material_factor);
             this.Controls.Add(this.group_modelo);
             this.Name = "FormMotoTrailla";
-            this.Text = "FormMotoTrailla";
+            this.Text = "    ";
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.group_material_factor.ResumeLayout(false);
