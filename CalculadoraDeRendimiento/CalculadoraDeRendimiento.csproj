@@ -238,6 +238,8 @@
       <DependentUpon>FormMotoTrailla.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Abundamiento.cs" />
+    <Compile Include="Modelo\HojaMaquinaria_buldozer.cs" />
+    <Compile Include="Modelo\Material.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -254,6 +256,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="CalculadoraDeRendimientoDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
